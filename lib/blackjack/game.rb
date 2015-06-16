@@ -46,7 +46,7 @@ class Blackjack::Game
   end
 
   def boost
-    while dealer.score < 17
+    while dealer.score < 17 && deck.any?
       hit @dealer
     end
   end

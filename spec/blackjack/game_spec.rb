@@ -93,5 +93,14 @@ RSpec.describe Blackjack::Game do
 
       it { expect(subject.cards.count).to eq 2 }
     end
+
+    context 'when deck is empty' do
+      let(:options) { {
+        dealer: Blackjack::Hand.new([Blackjack::Card.new('spades', '10'), Blackjack::Card.new('spades', 'J')]),
+        deck: []
+      } }
+
+      it { expect(subject.cards.count).to eq 2 }
+    end
   end
 end
