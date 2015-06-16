@@ -45,6 +45,10 @@ class Blackjack::Game
     hands.reject { |hand| hand.status == 'stand' }.empty?
   end
 
+  def has_pending_hands?
+    hands.select { |hand| hand.result.nil? }.any?
+  end
+
   def boost
     while dealer.score < 17 && deck.any?
       hit @dealer
